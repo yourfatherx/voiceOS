@@ -128,7 +128,7 @@ voiceos/
 LIMITATIONS (BY DESIGN)
 --------------------------------------------------
 
-• Does NOT type into text fields
+• Does NOT type into text fields (just not yet)
 • Does NOT control mouse or UI
 • Executes one command per voice input
 • Requires internet for speech recognition
