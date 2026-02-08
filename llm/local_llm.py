@@ -1,6 +1,6 @@
 import subprocess
 
-OLLAMA_EXE = r"C:\Users\<you>\AppData\Local\Programs\Ollama\ollama.exe"
+OLLAMA_EXE = r"C:\Users\aurvi\AppData\Local\Programs\Ollama\ollama.exe"
 
 SYSTEM_PROMPT = """
 You are a Windows voice command planner.
@@ -75,6 +75,47 @@ Output: {"intent":"close_app","app":"notepad"}
 
 User: Kill chrome
 Output: {"intent":"close_app","app":"chrome"}
+
+WORKFLOWS:
+
+If the user asks for multiple actions in one sentence
+(e.g. uses "and", "then", "after that"),
+output a workflow JSON.
+
+Workflow format:
+
+{
+  "workflow": [
+    { "intent": "...", ... },
+    { "intent": "...", ... }
+  ]
+}
+
+Rules:
+- Each step must be a valid single intent
+- Do NOT invent new intents
+- Execute steps in order
+- Use search_web for any search query
+
+Examples:
+
+User: Open google and search for bits pilani
+Output:
+{
+  "workflow": [
+    {"intent":"open_site","site":"google"},
+    {"intent":"search_web","engine":"google","query":"bits pilani"}
+  ]
+}
+
+User: Open notepad and set volume to 30
+Output:
+{
+  "workflow": [
+    {"intent":"open_app","app":"notepad"},
+    {"intent":"set_volume","value":30}
+  ]
+}
 """
 
 def call_local_llm(user_text: str) -> str:

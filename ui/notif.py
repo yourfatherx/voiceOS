@@ -1,11 +1,2 @@
-from win10toast import ToastNotifier
-
-_toaster = ToastNotifier()
-
-def notify(title, message):
-    _toaster.show_toast(
-        title,
-        message,
-        threaded=True,
-        duration=3
-    )
+def notify(title: str, message: str):
+    print(f"🔔 {title}: {message}")

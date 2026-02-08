@@ -32,6 +32,11 @@ def run_voice():
 
     llm_output = get_intent(text)
     command = parse_llm_response(llm_output)
+    # 🔹 WORKFLOW CASE
+    if "workflow" in command:
+        from workflow.runner import run_workflow
+        run_workflow(command["workflow"])
+        return
     print("🧪 Parsed command dict:", command)
     print("🧪 Intent value:", command.get("intent"), type(command.get("intent")))
 
@@ -61,6 +66,13 @@ def run_voice():
 
     elif intent == "mute":
         system_control.mute()
+
+    elif intent == "search_web":
+        engine = command.get("engine", "google")
+        query = command.get("query", "")
+        print("🧭 Routing search:", engine, query)
+        search_web(engine, query)
+
 
 
     else:

@@ -3,7 +3,7 @@ import os
 
 # 🔐 API key should be set as environment variable:
 # setx SARVAM_API_KEY "sk_..."
-client = SarvamAI(api_subscription_key="your key")
+client = SarvamAI(api_subscription_key="sk_bqq0rx3l_X1jQ3Nz3leJvys3DhANz0fgy")
 
 def transcribe(audio_file: str) -> str:
     """
