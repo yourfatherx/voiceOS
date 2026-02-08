@@ -63,7 +63,7 @@ INSTALLATION STEPS
 --------------------------------------------------
 
 1) Clone the repository
-   git clone https://github.com/yourusername/voiceos.git
+   git clone https://github.com/yourfatherx/voiceOS.git
    cd voiceos
 
 2) Create and activate a virtual environment
